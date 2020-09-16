@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DevicePreferences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Micro800ConnectionPath>DESKTOP-M25BPJI!AB_ETHIP-1\10.0.2.15</Micro800ConnectionPath>
+  <RSLCPath>DESKTOP-M25BPJI!AB_ETHIP-1\10.0.2.15</RSLCPath>
+  <FTLPath />
+</DevicePreferences>

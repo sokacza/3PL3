@@ -1,0 +1,26 @@
+PROGRAM MainRoutine
+#info= QLD
+BOF
+
+
+(*Adam Sokacz
+400177446
+L01P02 - Sump Pump*)
+
+SOR  [0,1] (**) (**)  XIO  [1,0] (*_IO_EM_DI_00*) (*LowLevelFloatSwitch*)  
+ BST  XIC  [2,0] (*_IO_EM_DI_01*) (*HighLevelFloatSwitch*)
+   NXB  XIC  [2,1] (*_IO_EM_DO_01*) (*PumpMotorStarter*)
+ BND
+  OTE  [3,0] (*_IO_EM_DO_01*) (*PumpMotorStarter*)
+EOR [4,0]
+
+
+(*The low level switch is normally closed and switches off when the water level exceeds the switch
+The high level switch is normally open and switches on when the water level exceeds the switch
+In  this case, the low switch should be wired up to an XIO to*)
+
+SOR  [0,4] (**) (**)
+EOR [1,0]
+EOF
+#end_info
+END_PROGRAM

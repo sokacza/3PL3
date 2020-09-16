@@ -1,0 +1,40 @@
+(****** QuickLD compiler *******************************)
+(****** Copyright Rockwell Automation Canada, Ltd ******)
+(****** ST *********************************************)
+
+(*************** Rung **********************************)
+(*Adam Sokacz 400177446
+L01P02 - Sump Pump*)
+__STEPPRAGMA
+0,1
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB1 := NOT(_IO_EM_DI_00) ;
+__EDTB2 := __EDTB1 AND _IO_EM_DI_01 ;
+__EDTB3 := __EDTB1 AND _IO_EM_DO_01 ;
+_IO_EM_DO_01 := (__EDTB2 OR __EDTB3) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(*The low level switch is normally closed and switches off when the water level exceeds the switch The high level switch is normally open and switches on when the water level exceeds the switch
+In  this case, the low switch should be wired up to an XIO to*)
+__STEPPRAGMA
+0,4
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Code for the end of File **************)
+__GL __LG0000 ;
+
+
+
+(*************** Local Symbols table *******************)
+(* __EDTB1 *)
+(* __EDTB2 *)
+(* __EDTB3 *)
+

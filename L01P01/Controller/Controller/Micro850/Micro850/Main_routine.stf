@@ -1,0 +1,12 @@
+PROGRAM Main_routine
+#info= QLD
+BOF
+
+
+(**)
+
+SOR  [0,1] (**) (**)  XIC  [1,0] (*InputA*) (**)  XIC  [2,0] (*_IO_EM_DI_00*) (*StartPB*)  OTE  [3,0] (*OutputA*) (**)
+EOR [4,0]
+EOF
+#end_info
+END_PROGRAM
