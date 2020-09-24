@@ -1,0 +1,109 @@
+(****** QuickLD compiler *******************************)
+(****** Copyright Rockwell Automation Canada, Ltd ******)
+(****** ST *********************************************)
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,1
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB1 := NOT(_IO_EM_DI_00) ;
+__EDTB2 := __EDTB1 AND _IO_EM_DI_01 ;
+__EDTB3 := __EDTB1 AND MOVEFWD ;
+MOVEFWD := (__EDTB2 OR __EDTB3) AND NOT(_IO_EM_DO_02) AND NOT(TP_1.Q) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,4
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB4 := NOT(_IO_EM_DI_00) ;
+__EDTB5 := __EDTB4 AND _IO_EM_DI_02 ;
+__EDTB6 := __EDTB4 AND MOVEBWD ;
+MOVEBWD := (__EDTB5 OR __EDTB6) AND NOT(_IO_EM_DO_01) AND NOT(TP_1.Q) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,7
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB7 := _IO_EM_DI_00 ;
+__EDTB8 := TP_1.Q ;
+(* FB call: TP *)
+TP_1((__EDTB7 OR __EDTB8), T#10S) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,10
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+__EDTB9 := _IO_EM_DO_01 ;
+__EDTB10 := _IO_EM_DO_02 ;
+_IO_EM_DO_03 := (__EDTB9 OR __EDTB10) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,13
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+_IO_EM_DO_04 := NOT(_IO_EM_DO_03) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,15
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+_IO_EM_DO_01 := MOVEFWD AND NOT(_IO_EM_DI_04) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Rung **********************************)
+(**)
+__STEPPRAGMA
+0,17
+__ENDSTEPPRAGMA
+(*Label :*)(**)
+_IO_EM_DO_02 := MOVEBWD AND NOT(_IO_EM_DI_04) ;
+
+(*************** Code for the end of Rung **************)
+
+
+(*************** Code for the end of File **************)
+__GL __LG0000 ;
+
+
+
+(*************** Local Symbols table *******************)
+(* __EDTB1 *)
+(* __EDTB2 *)
+(* __EDTB3 *)
+(* __EDTB4 *)
+(* __EDTB5 *)
+(* __EDTB6 *)
+(* __EDTB7 *)
+(* __EDTB8 *)
+(* __EDTB9 *)
+(* __EDTB10 *)
+

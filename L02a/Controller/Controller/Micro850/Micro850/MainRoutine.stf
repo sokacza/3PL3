@@ -1,0 +1,64 @@
+PROGRAM MainRoutine
+#info= QLD
+BOF
+
+
+(**)
+
+SOR  [0,1] (**) (**)  XIO  [1,0] (*_IO_EM_DI_00*) (*Stop*)  
+ BST  XIC  [2,0] (*_IO_EM_DI_01*) (*Forward*)
+   NXB  XIC  [2,1] (*MoveFWD*) (**)
+ BND
+  XIO  [3,0] (*_IO_EM_DO_02*) (*BackwardCoil*)  XIO  [4,0] (*TP_1.Q*) (*Q*)  OTE  [5,0] (*MoveFWD*) (**)
+EOR [6,0]
+
+
+(**)
+
+SOR  [0,4] (**) (**)  XIO  [1,0] (*_IO_EM_DI_00*) (*Stop*)  
+ BST  XIC  [2,0] (*_IO_EM_DI_02*) (*Backward*)
+   NXB  XIC  [2,1] (*MoveBWD*) (**)
+ BND
+  XIO  [3,0] (*_IO_EM_DO_01*) (*ForwardCoil*)  XIO  [4,0] (*TP_1.Q*) (*Q*)  OTE  [5,0] (*MoveBWD*) (**)
+EOR [6,0]
+
+
+(**)
+
+SOR  [0,7] (**) (**)  
+ BST  XIC  [1,0] (*_IO_EM_DI_00*) (*Stop*)
+   NXB  XIC  [1,1] (*TP_1.Q*) (*Q*)
+ BND
+  FB  [2,0] (*TP*) (*TP_1*) ( (*IN:IN*)(**) (**)  , (*PT:PT*)(*t#10s*) (**) ; (*Q:Q*)(**) (**)  , (*ET:ET*)(**) (**) )
+EOR [5,0]
+
+
+(**)
+
+SOR  [0,10] (**) (**)  
+ BST  XIC  [1,0] (*_IO_EM_DO_01*) (*ForwardCoil*)
+   NXB  XIC  [1,1] (*_IO_EM_DO_02*) (*BackwardCoil*)
+ BND
+  OTE  [2,0] (*_IO_EM_DO_03*) (*RunningLight*)
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,13] (**) (**)  XIO  [1,0] (*_IO_EM_DO_03*) (*RunningLight*)  OTE  [2,0] (*_IO_EM_DO_04*) (*StoppedLight*)
+EOR [3,0]
+
+
+(**)
+
+SOR  [0,15] (**) (**)  XIC  [1,0] (*MoveFWD*) (**)  XIO  [2,0] (*_IO_EM_DI_04*) (*SystemPause*)  OTE  [3,0] (*_IO_EM_DO_01*) (*ForwardCoil*)
+EOR [4,0]
+
+
+(**)
+
+SOR  [0,17] (**) (**)  XIC  [1,0] (*MoveBWD*) (**)  XIO  [2,0] (*_IO_EM_DI_04*) (*SystemPause*)  OTE  [3,0] (*_IO_EM_DO_02*) (*BackwardCoil*)
+EOR [4,0]
+EOF
+#end_info
+END_PROGRAM

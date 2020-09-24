@@ -1,0 +1,4 @@
+[BEGIN FB INPUTS]
+I1=micro850.micro850.mainroutine/tp_1.in,0x12A5,BOOL
+I2=micro850.micro850.mainroutine/tp_1.pt,0x12AC,TIME
+[END]
